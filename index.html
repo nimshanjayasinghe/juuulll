@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html b:version='2' class='v2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Get Canva Pro</title>
     <b:skin><![CDATA[
         body {
-            background-color: #282c34;
-            color: white;
+            background-color: #1E1E1E; /* Grey Ernesto inspired dark background */
+            color: #F0F0F0; /* Light grey text color */
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
@@ -37,44 +37,50 @@
             margin-bottom: 30px;
         }
         button {
-            background-color: #007bff;
-            color: white;
+            background-color: #4A4A4A; /* Dark grey button background */
+            color: #FFFFFF; /* White button text */
             padding: 10px 20px;
             border: none;
-            border-radius: 5px;
+            border-radius: 3px; /* Slightly adjusted border-radius */
             font-size: 1.2em;
             cursor: pointer;
         }
         button:hover {
-            background-color: #0056b3;
+            background-color: #5A5A5A; /* Darker grey on hover */
         }
     ]]></b:skin>
 </head>
 <body>
-    <div class="container">
-        <!-- User: Replace 'placeholder.png' with the actual URL or path to your logo image -->
-        <img src="placeholder.png" alt="Logo" />
-        <h1>Get Canva Pro</h1>
-        <p>free</p>
-        <button id="redirectButton">GET HERE</button>
-    </div>
+    <b:section class='main' id='main' showaddelement='yes'>
+      <b:widget id='HTML1' locked='true' title='Page Content' type='HTML' version='1'>
+        <b:includable id='main'>
+            <div class="container">
+                <!-- User: Replace 'placeholder.png' with the actual URL or path to your logo image -->
+                <img src="placeholder.png" alt="Logo" />
+                <h1>Get Canva Pro</h1>
+                <p>free</p>
+                <button id="redirectButton">GET HERE</button>
+            </div>
 
-    <script>
-        const redirectButton = document.getElementById('redirectButton');
-        let clickCount = localStorage.getItem('clickCount') ? parseInt(localStorage.getItem('clickCount')) : 0;
+            <script>
+                const redirectButton = document.getElementById('redirectButton');
+                let clickCount = localStorage.getItem('clickCount') ? parseInt(localStorage.getItem('clickCount')) : 0;
 
-        redirectButton.addEventListener('click', () => {
-            clickCount++;
-            localStorage.setItem('clickCount', clickCount);
+                redirectButton.addEventListener('click', () => {
+                    clickCount++;
+                    localStorage.setItem('clickCount', clickCount);
 
-            if (clickCount === 1 || clickCount === 2) {
-                window.location.href = "https://biozium.com/public/bio-links/everest-massimo/";
-            } else if (clickCount === 3) {
-                // User: Replace 'https://www.example.com/another-link' with your actual third-click redirection URL
-                window.location.href = "https://www.example.com/another-link"; // Placeholder URL
-                localStorage.setItem('clickCount', 0); // Reset counter
-            }
-        });
-    </script>
+                    if (clickCount === 1 || clickCount === 2) {
+                        window.location.href = "https://biozium.com/public/bio-links/everest-massimo/";
+                    } else if (clickCount === 3) {
+                        // User: Replace 'https://www.example.com/another-link' with your actual third-click redirection URL
+                        window.location.href = "https://www.example.com/another-link"; // Placeholder URL
+                        localStorage.setItem('clickCount', 0); // Reset counter
+                    }
+                });
+            </script>
+        </b:includable>
+      </b:widget>
+    </b:section>
 </body>
 </html>
