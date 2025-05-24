@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Canva Pro</title>
+    <style>
+        body {
+            background-color: #282c34;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            max-width: 400px;
+            padding: 20px;
+            text-align: center;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- User: Replace 'placeholder.png' with the actual URL or path to your logo image -->
+        <img src="placeholder.png" alt="Logo">
+        <h1>Get Canva Pro</h1>
+        <p>free</p>
+        <button id="redirectButton">GET HERE</button>
+    </div>
+
+    <script>
+        const redirectButton = document.getElementById('redirectButton');
+        let clickCount = localStorage.getItem('clickCount') ? parseInt(localStorage.getItem('clickCount')) : 0;
+
+        redirectButton.addEventListener('click', () => {
+            clickCount++;
+            localStorage.setItem('clickCount', clickCount);
+
+            if (clickCount === 1 || clickCount === 2) {
+                window.location.href = "https://biozium.com/public/bio-links/everest-massimo/";
+            } else if (clickCount === 3) {
+                // User: Replace 'https://www.example.com/another-link' with your actual third-click redirection URL
+                window.location.href = "https://www.example.com/another-link"; // Placeholder URL
+                localStorage.setItem('clickCount', 0); // Reset counter
+            }
+        });
+    </script>
+</body>
+</html>
