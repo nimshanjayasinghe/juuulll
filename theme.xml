@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:version='2' class='v2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+  <head>
+    <meta charset='UTF-8'/>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+    <b:include data='blog' name='all-head-content'/>
+    <title><data:blog.pageTitle/></title>
+    <b:skin><![CDATA[
+      /* Enhanced CSS Structure */
+      body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
+      
+      a { color: #007bff; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      #header-wrapper { background-color: #333; color: #fff; padding: 1em 0; text-align: center; }
+      /* Assuming Header widget might contain an h1 for the blog title */
+      #header-wrapper .Header h1 { margin: 0; font-size: 2em; } 
+
+      #page-body-wrapper {
+        display: flex;
+        flex-wrap: wrap; /* Allow wrapping for smaller screens */
+        margin: 0 auto;
+        max-width: 1200px; /* Max width for the content area */
+        padding: 0 15px; /* Padding on the sides of the page */
+      }
+
+      #content-wrapper {
+        flex: 2; /* Main content takes more space */
+        min-width: 0; /* Prevents overflow issues with flex items */
+        margin-right: 20px; /* Space between content and sidebar */
+        padding: 15px; /* Padding inside content area */
+        background-color: #fff; /* Added for clarity, was there before */
+      }
+
+      /* Styling for individual blog posts (using .post-entry from existing HTML) */
+      .post-entry { /* Changed from .post to match HTML */
+        background-color: #fff; 
+        margin-bottom: 15px; 
+        padding: 15px; 
+        border-radius: 5px; 
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
+      .post-entry .post-title { /* Changed from .post-title */
+        font-size: 1.5em; 
+        margin-top: 0;
+      }
+      .post-entry .post-body { /* Changed from .post-body */
+        line-height: 1.6;
+      }
+      /* Generic .post styles if Blogger adds this class by default in some contexts */
+      .post {
+        background-color: #fff; 
+        margin-bottom: 15px; 
+        padding: 15px; 
+        border-radius: 5px; 
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
+      .post .post-title {
+         font-size: 1.5em; margin-top: 0;
+      }
+      .post .post-body {
+         line-height: 1.6;
+      }
+
+
+      #sidebar-wrapper {
+        flex: 1; /* Sidebar takes less space */
+        min-width: 0; /* Prevents overflow issues */
+        padding: 15px; 
+        background-color: #f9f9f9;
+      }
+      
+      #footer-wrapper { 
+        background-color: #333; 
+        color: #fff; 
+        text-align: center; 
+        padding: 1em 0; 
+        margin-top: 20px; 
+        border-top: 1px solid #444; 
+        width:100%; /* Ensure footer spans full width after flex items */
+      }
+
+      /* Widget styling */
+      .widget { margin-bottom: 15px; }
+      .widget .title { font-size: 1.2em; margin-bottom: 10px; font-weight: bold; } /* Added font-weight from prev */
+      
+      /* Live Stream CSS - existing styles are good */
+      #live-stream-section {
+        margin-bottom: 20px; 
+        width: 100%; /* Ensure it takes full width in flex column */
+      }
+      #iframe-container {
+        position: relative;
+        width: 100%; 
+        height: 500px; 
+        max-width: 100%;
+      }
+      #iframe-container iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      #iframe-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0); /* Transparent */
+        z-index: 10; /* Above iframe */
+        cursor: pointer;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 992px) { /* Tablets and smaller desktops */
+        #content-wrapper {
+          margin-right: 0; /* Remove right margin if sidebar stacks or disappears */
+        }
+        /* If sidebar is still next to content, you might want to adjust flex basis or allow stacking earlier */
+      }
+      
+      /* Social Sharing Buttons CSS */
+      .social-sharing {
+        margin-top: 15px;
+        padding-top: 10px;
+        border-top: 1px solid #eee;
+      }
+      .social-sharing h4 {
+        margin: 0 0 5px 0;
+        font-size: 1em;
+      }
+      .social-sharing a {
+        display: inline-block;
+        margin-right: 10px;
+        padding: 5px 10px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        background-color: #f9f9f9;
+      }
+      .social-sharing a:hover {
+        background-color: #eee;
+        text-decoration: none;
+      }
+
+      @media (max-width: 768px) { /* Mobile phones */
+        #page-body-wrapper {
+          flex-direction: column; /* Stack main content and sidebar */
+        }
+        #content-wrapper, #sidebar-wrapper {
+          width: 100%;
+          flex-basis: auto; /* Allow them to take full width */
+          margin-right: 0; /* Reset margin */
+          margin-bottom: 15px;
+        }
+        #iframe-container { /* Ensure iframe height is adjusted */
+          height: 300px; 
+        }
+         #live-stream-section { /* Ensure it stacks correctly */
+            margin-bottom: 15px;
+        }
+      }
+    ]]></b:skin>
+    <b:template-skin><![CDATA[
+      /* Template skin variables and advanced CSS */
+      <variable name="keyColor" description="Main color" type="color" default="#4CAF50" value="#4CAF50"/>
+      <variable name="bodyFont" description="Font for body text" type="font" default="Arial, sans-serif"/>
+      <variable name="headerFont" description="Font for headers" type="font" default="Arial, sans-serif"/>
+      <variable name="linkColor" description="Link color" type="color" default="#007bff" value="#007bff"/>
+    ]]></b:template-skin>
+  </head>
+  <body>
+    <div id='header-wrapper'>
+      <b:section class='header' id='header' name='Header' maxwidgets='1' showaddelement='yes'>
+        <b:widget id='Header1' locked='true' title='My Awesome Blog (Header)' type='Header' version='1' visible='true'/>
+      </b:section>
+    </div>
+
+    <b:section class='live-stream-section' id='live-stream' name='Live Stream Area' maxwidgets='1' showaddelement='no'>
+      <b:widget id='HTML1' locked='true' title='Live IPL Stream' type='HTML' version='2' visible='true'>
+        <b:includable id='main'>
+          <div id="iframe-container">
+            <div id="iframe-overlay"></div>
+            <iframe src="//stream.crichd.sc/update/skys2.php" marginheight="0" marginwidth="0" scrolling="no" frameborder="0" allowfullscreen="true" allow="encrypted-media"></iframe>
+          </div>
+        </b:includable>
+      </b:widget>
+    </b:section>
+
+    <div id='page-body-wrapper'>
+      <div id='content-wrapper'>
+        <b:section class='main' id='main' name='Main Posts' showaddelement='yes'>
+          <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2' visible='true'>
+            <b:includable id='main' var='top'>
+              <!-- Post looping and display logic -->
+              <b:loop values='data:posts' var='post'>
+                <article class='post-entry'> {/* Matched CSS to .post-entry */}
+                  <b:if cond='data:blog.pageType == &quot;item&quot;'>
+                    <h1 class='post-title entry-title'><b:eval expr='data:post.title'/></h1>
+                  <b:else/>
+                    <h2 class='post-title entry-title'><a expr:href='data:post.url'><b:eval expr='data:post.title'/></a></h2>
+                  </b:if>
+                  <div class='post-body'>
+                    <b:eval expr='data:post.body'/>
+                  </div>
+                  <div class='social-sharing'>
+                    <h4>Share this post:</h4>
+                    <a expr:href='&quot;https://www.facebook.com/sharer/sharer.php?u=&quot; + data:post.url' target='_blank' title='Share on Facebook'>Facebook</a>
+                    <a expr:href='&quot;https://twitter.com/intent/tweet?url=&quot; + data:post.url + &quot;&amp;text=&quot; + data:post.title' target='_blank' title='Share on Twitter'>Twitter</a>
+                    <a expr:href='&quot;whatsapp://send?text=&quot; + data:post.title + &quot;%20&quot; + data:post.url' target='_blank' title='Share on WhatsApp'>WhatsApp</a>
+                  </div>
+                  <div class='post-footer'>
+                    <span>Posted by <data:post.author/></span>
+                    <span>at <data:post.timestamp/></span>
+                    <a expr:href='data:post.addCommentUrl' expr:onclick='data:post.addCommentOnclick'>
+                       <data:post.numComments/> comments
+                    </a>
+                  </div>
+                </article>
+              </b:loop>
+            </b:includable>
+             <b:includable id='postQuickEdit' var='post'>
+                <b:include data='post' name='postQuickEdit'/>
+             </b:includable>
+          </b:widget>
+        </b:section>
+      </div>
+
+      <div id='sidebar-wrapper'>
+        <b:section class='sidebar' id='sidebar' name='Sidebar' showaddelement='yes' preferred='yes'>
+          <b:widget id='Profile1' locked='false' title='About Me' type='Profile' version='1' visible='true'/>
+          <b:widget id='Label1' locked='false' title='Categories' type='Label' version='1' visible='true'/>
+          <b:widget id='PageList1' locked='false' title='Pages' type='PageList' version='1' visible='true'/>
+        </b:section>
+      </div>
+    </div>
+
+    <div id='footer-wrapper'>
+      <b:section class='footer' id='footer' name='Footer' maxwidgets='1' showaddelement='yes'>
+        <b:widget id='Attribution1' locked='true' title='Attribution' type='Attribution' version='1' visible='true'/>
+      </b:section>
+    </div>
+    <script type='text/javascript'>
+    //<![CDATA[
+      // Ensure this script runs after the DOM is loaded
+      function initStreamOverlay() {
+        const overlay = document.getElementById('iframe-overlay');
+        if (!overlay) return; // Guard against element not found
+
+        let clickCount = 0;
+        const popupUrl = "https://www.profitableratecpm.com/xseidfdb?key=a475bea17e7acf7a155a3842673aa097";
+
+        overlay.addEventListener('click', function() {
+          clickCount++;
+          if (clickCount === 1) {
+            window.open(popupUrl, '_blank');
+          } else if (clickCount === 2) {
+            overlay.style.display = 'none';
+          }
+        });
+      }
+
+      // Call the init function
+      // If using plain script tags, can wrap in DOMContentLoaded or call directly if script is at end of body
+      if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initStreamOverlay);
+      } else {
+          initStreamOverlay(); // DOMContentLoaded has already fired
+      }
+    //]]>
+    </script>
+  </body>
+</html>
